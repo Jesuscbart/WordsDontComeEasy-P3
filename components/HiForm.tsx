@@ -1,10 +1,9 @@
 import { FunctionComponent } from 'preact';
 import { Signal } from "@preact/signals";
 
+// He creado este fichero
 
-// He creado este fichero 
-
-
+// Props
 type HiProps = {
     name: Signal<string>;
     surname: Signal<string>;
@@ -23,7 +22,7 @@ const HiForm:FunctionComponent<HiProps> = (HiProps) => {
 
           <input type="text" name="apellido" placeholder={"Last name"} 
             onInput={(e)=>HiProps.surname.value = e.currentTarget.value} 
-            onFocus={(e)=>HiProps.check.value = false} 
+            onFocus={(e)=>HiProps.check.value = false} // Para que se repinte el shower
           />
           <br />
         </form>
