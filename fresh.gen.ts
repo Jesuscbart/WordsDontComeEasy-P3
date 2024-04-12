@@ -26,7 +26,7 @@ const manifest = {
   islands: {
     "./islands/CustomHeader.tsx": $CustomHeader,
     "./islands/HiButton.tsx": $HiButton,
-    "./islands/HihihiForm.tsx": $HihihiForm,
+    "./islands/HiPage.tsx": $HiPage,
     "./islands/start.tsx": $start,
   },
   baseUrl: import.meta.url,
