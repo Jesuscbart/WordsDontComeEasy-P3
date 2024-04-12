@@ -1,13 +1,15 @@
-import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
 import { Fragment } from "preact/jsx-runtime";
 import Axios from "npm:axios";
 import Lover from "../components/Lover.tsx";
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { useState } from "preact/hooks";
 
+// Todas las fotos se llaman foto.
+// Todas las imágenes se llaman image.
+
 type LoverT = {
   _id: string;
-  foto: string;
+  photo: string;
 };
 
 type PokemonT = {
@@ -69,32 +71,32 @@ const LoversPage = (props: PageProps<{ pageData: LoverT[] | PokemonT[] }>) => { 
       </div>
       <div class="columns">
         <div class="column column-reverse">
-          {secondPart.map((lover, n) => (
+          {secondPart.map((lover) => (  // Elimino el ,n
             <Lover
-              image={(lover as any).foto
-                ? (lover as LoverT).foto
+              image={(lover as any).photo
+                ? (lover as LoverT).photo
                 : (lover as PokemonT).image}
-              key={n}
+              key={lover._id} // Escribo de key lover._id porque el key debe ser único
             />
           ))}
         </div>
         <div class="column">
-          {firstPart.map((lover, n) => (
+          {firstPart.map((lover) => ( // Elimino el ,n
             <Lover
-              image={(lover as any).foto
-                ? (lover as LoverT).foto
+              image={(lover as any).photo
+                ? (lover as LoverT).photo
                 : (lover as PokemonT).image}
-              key={n}
+              key={lover._id} // Escribo de key lover._id porque el key debe ser único
             />
           ))}
         </div>
         <div class="column column-reverse">
-          {thirdPart.map((lover, n) => (
+          {thirdPart.map((lover) => ( // Elimino el ,n
             <Lover
-              image={(lover as any).foto
-                ? (lover as LoverT).foto
+              image={(lover as any).photo
+                ? (lover as LoverT).photo
                 : (lover as PokemonT).image}
-              key={n}
+              key={lover._id} // Escribo de key lover._id porque el key debe ser único
             />
           ))}
         </div>
